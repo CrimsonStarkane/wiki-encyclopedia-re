@@ -1,0 +1,68 @@
+@use 'components';
+
+.content-pane {
+    @extend %right-pane;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+    hr {
+        margin-top: 0;
+        width: 100%;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        flex: 1;
+
+        .alert-danger {
+            display: flex;
+            align-items: center;
+            border: 1px solid rgba(241, 6, 6, 0.81);
+            background-color: rgba(220, 17, 1, 0.16);
+            box-shadow: 0px 0px 2px #ff0303;
+            color: #ff0303;
+            padding: 10px 10px 10px 30px;
+            width: 100%;
+            margin: 10px 0 0 0;
+            cursor: default;
+            transition: background-co 0.5s;
+
+            strong {
+                letter-spacing: 1px;
+            }
+
+            &:hover {
+                background-color: rgba(220, 17, 1, 0.33);
+            }
+        }
+
+        .title-input {
+            @extend %input-form;
+            margin-top: 30px;
+        }
+
+        .input-area {
+            @extend %input-form;
+            flex: 3;
+            margin-top: 15px;
+            resize: none;
+        }
+
+        input[value="Publish"] {
+            float: right;
+            margin-top: 15px;
+            padding: 10px 25px;
+            background-color: #F55150;
+            color: white;
+            border: none;
+            transition: background-color 0.5s;
+
+            &:hover {
+                background-color: #{adjust-hue(#F55150, -90deg)};
+            }
+        }
+    }
+}

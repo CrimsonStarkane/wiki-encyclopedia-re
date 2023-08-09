@@ -1,0 +1,25 @@
+@use 'components';
+
+.error-container {
+	@extend %right-pane;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 45px;
+
+	.error-pane {
+		text-align: center;
+		height: fit-content;
+
+		h1 {
+			font-size: 125px;
+			letter-spacing: 10px;
+			margin: 0;
+		}
+
+		hr {
+			width: 300px;
+		}
+	}
+}

@@ -1,0 +1,13 @@
+{% extends "encyclopedia/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <div class="main">
+        {{ content|safe }}
+        <a href="{% url 'edit' title %}">
+            <div class="round-btn">
+                <img src="{% static 'encyclopedia/graphics/edit-3.svg' %}" alt="Edit Icon">
+            </div>
+        </a>
+    </div>
+{% endblock %}

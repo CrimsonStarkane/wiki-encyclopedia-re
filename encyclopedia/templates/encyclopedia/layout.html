@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{{ title }}</title>
+    <link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="row">
+        <div class="sidebar">
+            <h2>Wiki</h2>
+            <form action="{% url 'isearch' %}" method="post">
+                {% csrf_token %}
+                <img src="{% static 'encyclopedia/graphics/search.svg' %}" alt="Search Icon">
+                {{ form.non_field_errors }}
+                {{ form.searchbar.errors }}
+                {{ form.searchbar }}
+            </form>
+            <div class="side-links">
+                <a href="{% url 'index' %}">
+                    <img src="{% static 'encyclopedia/graphics/home.svg' %}" alt="Home Icon">
+                    <span>Home</span>
+                </a>
+            </div>
+            <div class="side-links">
+                <a href="{% url 'add' %}">
+                    <img src="{% static 'encyclopedia/graphics/edit.svg' %}" alt="Edit Icon">
+                    <span>Create New Page</span>
+                </a>
+            </div>
+            <div class="side-links">
+                <a href="{% url 'random' %}">
+                    <img src="{% static 'encyclopedia/graphics/shuffle.svg' %}" alt="Shuffle Icon">
+                    <span>Random Page</span>
+                </a>
+            </div>
+        </div>
+        {% block body %}
+        {% endblock %}
+    </div>
+</body>
+
+</html>

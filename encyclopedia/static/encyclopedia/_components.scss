@@ -1,0 +1,28 @@
+@mixin entry-box($h-size, $box-color) {
+	min-width: $h-size;
+    background-color: $box-color;
+
+    &:hover, &:focus {
+        box-shadow: 0 0.5em 0.5em -0.4em $box-color;
+        transform: translateY(-0.25em);
+        color: white;
+    }
+}
+
+%input-form {
+    display: block;
+    width: 100%;
+    outline: none;
+    border: 2px solid #CECECE;
+    padding: 10px;
+    transition: border-color 0.1s;
+
+    &:hover, &:focus {
+        border-color: rgba(66, 61, 67, 0.6);
+    }
+}
+
+%right-pane {
+    padding: 45px 60px;
+    margin-left: 370px;
+}

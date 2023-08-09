@@ -1,0 +1,178 @@
+@use 'components'as c;
+@import url('https://fonts.googleapis.com/css2?family=Marmelad&display=swap');
+
+code {
+    white-space: pre;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.page-link {
+    text-decoration: underline;
+    color: #F47C7C;
+}
+
+.row {
+    height: 100vh;
+    font-family: 'Marmelad', sans-serif;
+    color: #423D43;
+
+    .sidebar {
+        position: fixed;
+        width: 370px;
+        height: 100vh;
+        background-color: #CECECE;
+        padding: 48px;
+
+        h2 {
+            font-size: 48px;
+            margin: 5px 0 30px 0;
+            text-align: center;
+        }
+
+        form {
+            position: relative;
+            display: flex;
+            align-items: center;
+
+            img {
+                position: absolute;
+                height: 20px;
+                left: 8px;
+            }
+
+            .search {
+                flex: 1;
+                height: 28px;
+                font-size: 15px;
+                padding-left: 35px;
+                outline: none;
+                border: 1px solid black;
+
+                &:hover,
+                &:focus {
+                    border-color: #36c;
+                    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+                }
+            }
+        }
+
+        .side-links:first-of-type {
+            margin-top: 50px;
+        }
+
+        .side-links {
+            margin: 0 0 20px 10px;
+            transition: padding-left 0.25s, color 0.25s;
+            width: fit-content;
+
+            a {
+                display: flex;
+                align-items: center;
+
+                img {
+                    transition: 0.25s;
+                }
+
+                span {
+                    margin-left: 20px;
+                }
+            }
+
+            &:hover {
+                padding-left: 5px;
+                color: #F55150;
+
+                img {
+                    transition: filter 0.25s;
+                    filter: invert(45%) sepia(8%) saturate(6224%) hue-rotate(320deg) brightness(99%) contrast(95%);
+                }
+            }
+        }
+    }
+
+    .heading-title {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .main {
+        @extend %right-pane;
+
+        .page-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+
+            a {
+                flex: auto;
+                min-width: 80px;
+                padding: 15px;
+                text-align: center;
+                font-size: 20px;
+                white-space: nowrap;
+                user-select: none;
+                cursor: pointer;
+                transition: box-shadow 0.25s, transform 0.25s, color 0.25s;
+                
+                &:nth-child(4n+1) {
+                    @include c.entry-box(150px, #D8A5A5);
+                }
+
+                &:nth-child(4n+2) {
+                    @include c.entry-box(225px, #829BA3);
+                }
+
+                &:nth-child(4n+3) {
+                    @include c.entry-box(80px, #E8D990);
+                }
+
+                &:nth-child(4n+4) {
+                    @include c.entry-box(280px, #F47C7C);
+                }
+            }
+
+            span {
+                color: #71777d;
+                font-size: 1.2rem;
+
+                strong {
+                    font-weight: 700;
+                    color: #71777d;
+                }
+            }
+
+            &::after {
+                content: "";
+                min-width: 280px;
+            }
+        }
+
+        .round-btn {
+            display: flex;
+            position: fixed;
+            bottom: 50px;
+            right: 60px;
+            border-radius: 50%;
+            width: 65px;
+            height: 65px;
+            background-color: #F47C7C;
+            box-shadow: 0 5px 15px -5px #F47C7C;
+            transition: 0.3s;
+
+            img {
+                margin: auto;
+                filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(235deg) brightness(107%) contrast(105%);
+            }
+
+            &:hover {
+                box-shadow: 0 10px 25px #F47C7C;
+                transform: translatey(5px);
+            }
+        }
+    }
+}

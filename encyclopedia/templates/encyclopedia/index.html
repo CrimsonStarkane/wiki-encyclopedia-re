@@ -1,0 +1,25 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block body %}
+    <div class="main">
+        <h1 class="heading-title">{{ header }}</h1>
+        <hr>
+        <div class="page-list">
+            {% for entry in entries %}
+                <a href="{% url 'entry' entry %}">
+                    <div>
+                        {{ entry }}
+                    </div>
+                </a>
+            {% empty %}
+                <span>
+                    {% if title == "Encyclopedia" %}
+                        There are no entries yet.
+                    {% else %}
+                        There are no results for <strong>"{{ search }}"</strong>
+                    {% endif %}
+                </span>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
